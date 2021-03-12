@@ -26,8 +26,7 @@ class MainActivity : AppCompatActivity(), LoginFragment.BottomMenuVisibilityList
             setOf(
                 R.id.navigation_main,
                 R.id.navigation_list,
-                R.id.navigation_account,
-                R.id.navigation_user_things
+                R.id.navigation_account
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

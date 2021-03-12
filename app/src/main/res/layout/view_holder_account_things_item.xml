@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
-        android:id="@+id/view_holder_user_things_photo"
+        android:id="@+id/view_holder_account_things_photo"
         android:layout_width="64dp"
         android:layout_height="64dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -14,11 +14,11 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/view_holder_user_things_name"
+        android:id="@+id/view_holder_account_things_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/view_holder_user_things_photo"
-        app:layout_constraintStart_toEndOf="@id/view_holder_user_things_photo"
+        app:layout_constraintTop_toTopOf="@id/view_holder_account_things_photo"
+        app:layout_constraintStart_toEndOf="@id/view_holder_account_things_photo"
         tools:text="Thing name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

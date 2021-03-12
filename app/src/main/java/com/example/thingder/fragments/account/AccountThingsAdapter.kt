@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.thingder.R
 
-class UserThingsAdapter: RecyclerView.Adapter<DataViewHolder>() {
+class AccountThingsAdapter: RecyclerView.Adapter<DataViewHolder>() {
     private var things = listOf<Int>() // listOf<Thing>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         return DataViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.view_holder_user_things_item, parent, false))
+            .inflate(R.layout.view_holder_account_things_item, parent, false))
     }
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
@@ -29,8 +29,8 @@ class UserThingsAdapter: RecyclerView.Adapter<DataViewHolder>() {
 }
 
 class DataViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-    private val photo: ImageView = itemView.findViewById(R.id.view_holder_user_things_photo)
-    private val name: TextView = itemView.findViewById(R.id.view_holder_user_things_name)
+    private val photo: ImageView = itemView.findViewById(R.id.view_holder_account_things_photo)
+    private val name: TextView = itemView.findViewById(R.id.view_holder_account_things_name)
 
     fun onBind() {
 
