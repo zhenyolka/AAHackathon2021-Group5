@@ -36,5 +36,10 @@
         android:label="@string/nav_account_title"
         tools:layout="@layout/fragment_account">
     </fragment>
+    <fragment
+        android:id="@+id/navigation_user_things"
+        android:name="com.example.thingder.fragments.userThings.UserThings"
+        android:label="@string/nav_user_things_title"
+        tools:layout="@layout/fragment_user_things" />
 
 </navigation>

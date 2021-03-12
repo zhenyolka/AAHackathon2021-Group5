@@ -15,6 +15,7 @@
     <string name="nav_main_title">Main</string>
     <string name="nav_list_title">List</string>
     <string name="nav_account_title">Account</string>
+    <string name="nav_user_things_title">User Things</string>
 
     <string name="welcome_to_thingder">Welcome to Thingder</string>
     <string name="you_are_not_authorised">You are not authorised</string>

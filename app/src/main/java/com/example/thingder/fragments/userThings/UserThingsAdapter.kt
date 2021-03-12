@@ -33,6 +33,6 @@ class DataViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     private val name: TextView = itemView.findViewById(R.id.view_holder_user_things_name)
 
     fun onBind() {
-        
+
     }
 }

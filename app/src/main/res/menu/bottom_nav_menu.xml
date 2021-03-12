@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_account_box"
         android:title="@string/nav_account_title" />
 
+    <item
+        android:id="@+id/navigation_user_things"
+        android:icon="@drawable/ic_account_box"
+        android:title="@string/nav_user_things_title" />
+
 </menu>
