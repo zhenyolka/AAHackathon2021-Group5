@@ -1,7 +1,6 @@
 package com.example.thingder
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.findNavController
@@ -14,7 +13,7 @@ import com.example.thingder.fragments.login.LoginFragment
 
 class MainActivity : AppCompatActivity(), LoginFragment.BottomMenuVisibilityListener {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainViewModel by viewModels { Injection.provideViewModelFactory() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)

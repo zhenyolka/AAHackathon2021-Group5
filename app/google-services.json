@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1016421542076",
+    "project_id": "thingder-e42cd",
+    "storage_bucket": "thingder-e42cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016421542076:android:01eaab4f67077ed30988b9",
+        "android_client_info": {
+          "package_name": "com.example.thingder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016421542076-b5b7d699n7ceb4njq3ehunnvpj4697b6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHbRpDc4J3RFGCvGIOmfnFicS6FjeqjFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016421542076-b5b7d699n7ceb4njq3ehunnvpj4697b6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
