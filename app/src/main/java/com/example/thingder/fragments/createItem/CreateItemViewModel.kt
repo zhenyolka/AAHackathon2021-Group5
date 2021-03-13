@@ -22,7 +22,7 @@ class CreateItemViewModel(private val iCreateItemUseCase: ICreateItemUseCase) : 
     fun createThing(title: String) {
         viewModelScope.launch {
             val uri = _imageUri.value
-            if (uri == null) {
+            if (uri == null || title.isBlank()) {
                 _isCreateSuccess.postValue(false)
             } else {
                 val result = iCreateItemUseCase.createThing(title, uri)

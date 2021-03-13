@@ -34,39 +34,32 @@
 
 
     <TextView
-        android:id="@+id/tvUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/you_are_not_authorised"
-        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-        app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@id/progressBar"
-        android:textSize="20sp"/>
-
-    <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/welcome_to_thingder"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:paddingBottom="32dp"
         app:layout_constraintEnd_toStartOf="@id/guidelineRight"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@id/tvUser"
-        android:textSize="20sp"/>
+        app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
 
     <EditText
         android:id="@+id/fieldEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
         android:gravity="center_horizontal"
         android:hint="@string/prompt_email"
+        android:inputType="textEmailAddress"
         android:maxLines="1"
+        android:selectAllOnFocus="true"
         app:layout_constraintEnd_toStartOf="@id/guidelineRight"
         app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@id/textView2"
-        />
+        app:layout_constraintTop_toBottomOf="@id/textView2" />
 
     <EditText
         android:id="@+id/fieldPassword"
@@ -76,12 +69,11 @@
         android:gravity="center_horizontal"
         android:hint="@string/prompt_password"
         android:inputType="textPassword"
-        android:selectAllOnFocus="true"
         android:maxLines="1"
+        android:selectAllOnFocus="true"
         app:layout_constraintEnd_toStartOf="@id/guidelineRight"
         app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@id/fieldEmail"
-        />
+        app:layout_constraintTop_toBottomOf="@id/fieldEmail" />
 
     <Button
         android:id="@+id/buttonRegister"
@@ -91,10 +83,9 @@
         android:layout_marginEnd="8dp"
         android:layout_weight="1"
         android:text="@string/register_button"
-        app:layout_constraintStart_toEndOf="@id/guidelineLeft"
+        app:layout_constraintBottom_toTopOf="@id/guidelineBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonSignIn"
-        app:layout_constraintTop_toBottomOf="@id/fieldPassword"
-        />
+        app:layout_constraintStart_toEndOf="@id/guidelineLeft" />
 
     <Button
         android:id="@+id/buttonSignIn"
@@ -104,9 +95,21 @@
         android:layout_marginEnd="8dp"
         android:layout_weight="1"
         android:text="@string/sign_in_button"
-        app:layout_constraintStart_toEndOf="@id/buttonRegister"
+        app:layout_constraintBottom_toTopOf="@id/guidelineBottom"
         app:layout_constraintEnd_toStartOf="@id/guidelineRight"
-        app:layout_constraintTop_toBottomOf="@id/fieldPassword"
-        />
+        app:layout_constraintStart_toEndOf="@id/buttonRegister" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="32dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="32dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

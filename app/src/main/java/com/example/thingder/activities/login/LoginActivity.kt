@@ -34,10 +34,7 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.isAuthorised.observe(this, { isAuthorised ->
             Log.d("SIGNIN_TAG", "isAuthorised: $isAuthorised")
             if (isAuthorised) {
-                binding.tvUser.text = Firebase.auth.currentUser?.email.toString()
                 navigateToMainActivity()
-            } else {
-                binding.tvUser.text = getString(R.string.you_are_not_authorised)
             }
         })
 
