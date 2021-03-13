@@ -2,11 +2,9 @@ package com.example.thingder.fragments.createItem
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -61,9 +59,13 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
-        intent.resolveActivity(requireActivity().packageManager)?.let {
+
+        try {
             startActivityForResult(intent, OPEN_GALLERY_CODE)
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "$e", Toast.LENGTH_SHORT).show()
         }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

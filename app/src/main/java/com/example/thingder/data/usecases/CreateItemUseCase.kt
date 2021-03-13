@@ -36,21 +36,10 @@ class CreateItemUseCase(
         val imageName = auth.currentUser!!.uid + title
         val imageRef = storagePathRef.child(imageName)
         val uploadTask = imageRef.putFile(uri)
-        var downloadUri = ""
-        uploadTask.continueWithTask { task ->
-            if (!task.isSuccessful) {
-                task.exception?.let {
-                    Log.d("LOAD_TAG", "exception: ${it.message}")
-                }
-            }
-            storagePathRef.downloadUrl
-        }.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                downloadUri = task.result.toString()
-            } else {
-                Log.d("LOAD_TAG", "downloadUri Failure")
-            }
-        }
-        return@withContext downloadUri
+
+        uploadTask.await()
+        val image = imageRef.downloadUrl.await()
+
+        return@withContext image.toString()
     }
 }
