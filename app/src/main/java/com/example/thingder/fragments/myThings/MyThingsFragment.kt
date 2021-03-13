@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.thingder.R
 import com.example.thingder.databinding.FragmentMyThingsBinding
 import com.example.thingder.domain.entities.Thing
-import com.example.thingder.domain.usecase.FetchMyThings
+import com.example.thingder.domain.usecase.IFetchMyThings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class MyThingsFragment : Fragment(R.layout.fragment_my_things) {
     private lateinit var binding: FragmentMyThingsBinding
     private val myThingsViewModel by viewModels<MyThingsViewModel> {
-        MyThingsViewModelFactory(object : FetchMyThings {
+        MyThingsViewModelFactory(object : IFetchMyThings {
             override fun fetch(): Flow<List<Thing>> {
                 return flow {
                     emit(
