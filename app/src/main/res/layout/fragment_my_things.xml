@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.account.AccountFragment">
+    tools:context=".fragments.myThings.MyThingsFragment">
 
     <TextView
-        android:id="@+id/account_things_header"
+        android:id="@+id/my_things_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -15,10 +15,10 @@
         tools:text="My Things" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/account_things_recycler"
+        android:id="@+id/my_things_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/account_things_header"
+        app:layout_constraintTop_toBottomOf="@id/my_things_header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

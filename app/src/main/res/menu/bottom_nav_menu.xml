@@ -12,8 +12,8 @@
         android:title="@string/nav_mine_liked_things_title" />
 
     <item
-        android:id="@+id/navigation_account"
+        android:id="@+id/navigation_my_things"
         android:icon="@drawable/ic_account_box"
-        android:title="@string/nav_account_title" />
+        android:title="@string/nav_my_things_title" />
 
 </menu>
