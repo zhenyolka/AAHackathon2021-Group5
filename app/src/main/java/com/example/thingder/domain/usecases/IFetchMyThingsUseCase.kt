@@ -1,8 +1,8 @@
-package com.example.thingder.domain.usecase
+package com.example.thingder.domain.usecases
 
 import com.example.thingder.domain.entities.Thing
 import kotlinx.coroutines.flow.Flow
 
-interface IFetchMyThings {
+interface IFetchMyThingsUseCase {
     fun fetch(): Flow<List<Thing>>
 }
