@@ -3,28 +3,17 @@ package com.example.thingder.fragments.myThings
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.example.thingder.domain.entities.Thing
+import com.example.thingder.domain.usecase.FetchMyThings
 
-class MyThingsViewModel: ViewModel() {
+class MyThingsViewModel(private val fetchMyThings: FetchMyThings) : ViewModel() {
     private val _things = MutableLiveData<List<Thing>>()
-    val things: LiveData<List<Thing>> get() = _things
+    val things: LiveData<List<Thing>> = _things
 
     init {
         // TODO: replace with API call
-        _things.postValue(listOf(
-            Thing(
-                id = 1,
-                title = "Brick"
-            ),
-            Thing(
-                id = 2012,
-                title = "End of The World Button"
-            ),
-            Thing(
-                id = 42,
-                title = "Universe"
-            )
-        ))
+        _things.postValue(fetchMyThings.fetch().asLiveData().value)
     }
 
     fun deleteItem(thing: Thing) {
