@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/navigation_main"
-        android:icon="@drawable/ic_image"
+        android:icon="@android:drawable/ic_menu_search"
         android:title="@string/nav_main_title" />
 
     <item
@@ -18,7 +18,7 @@
 
     <item
         android:id="@+id/navigation_liked_things"
-        android:icon="@drawable/ic_account_box"
+        android:icon="@android:drawable/btn_star"
         android:title="@string/nav_liked_things_title" />
 
 </menu>

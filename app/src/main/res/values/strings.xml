@@ -11,11 +11,11 @@
     <string name="login_failed">"Login failed"</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nav_main_title">Main</string>
-    <string name="nav_mine_liked_things_title">Mine Liked Things</string>
-    <string name="nav_my_things_title">My Things</string>
+    <string name="nav_main_title">Explore</string>
+    <string name="nav_mine_liked_things_title">Matches</string>
+    <string name="nav_my_things_title">Profile</string>
     <string name="nav_create_item">Create thing</string>
-    <string name="nav_liked_things_title">Things I liked</string>
+    <string name="nav_liked_things_title">Favorites</string>
     <string name="welcome_to_thingder">Welcome to Thingder</string>
     <string name="you_are_not_authorised">You are not authorised</string>
     <string name="add_thing">Add thing</string>
