@@ -16,6 +16,7 @@ import com.example.thingder.databinding.FragmentCreateItemBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 
 
 class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
@@ -24,7 +25,8 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
         CreateItemViewModelFactory(
             CreateItemUseCase(
                 FirebaseFirestore.getInstance(),
-                Firebase.auth
+                Firebase.auth,
+                Firebase.storage
             )
         )
     }

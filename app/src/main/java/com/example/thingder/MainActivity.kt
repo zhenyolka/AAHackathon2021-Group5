@@ -41,6 +41,12 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
     }
 
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
@@ -77,4 +83,5 @@ class MainActivity : AppCompatActivity() {
         //Toast.makeText(applicationContext, getString(R.string.logout_success_toast_text), Toast.LENGTH_SHORT).show()
         startActivity(intent)
     }
+
 }
