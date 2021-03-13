@@ -8,9 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.asynctaskcoffee.cardstack.CardContainerAdapter
 import com.example.thingder.R
+import com.example.thingder.domain.entities.Thing
 import com.squareup.picasso.Picasso
 
-class MainAdapter(private val list: List<Int>, context: Context) :
+class MainAdapter(private val list: List<Thing>, context: Context) :
     CardContainerAdapter() {
 
     private var layoutInflater: LayoutInflater = LayoutInflater.from(context)
@@ -27,7 +28,7 @@ class MainAdapter(private val list: List<Int>, context: Context) :
 
         //Picasso.get().load(thing.thingImage).into(thingImageView)
 
-       //thingName.text = thing.thingName
+       thingName.text = thing.title
 
         return v
     }
