@@ -12,22 +12,15 @@
         android:textColor="@color/black"
         android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/cardContainer"
-        app:layout_constraintEnd_toEndOf="@+id/cardContainer"
-        app:layout_constraintStart_toStartOf="@+id/cardContainer"
+        app:layout_constraintBottom_toBottomOf="@+id/thingImage"
+        app:layout_constraintEnd_toEndOf="@+id/thingImage"
+        app:layout_constraintStart_toStartOf="@+id/thingImage"
         android:layout_marginBottom="32dp"
         tools:text="Random Thing" />
 
-    <com.asynctaskcoffee.cardstack.CardContainer
-        android:id="@+id/cardContainer"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/thingImage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/thingImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </com.asynctaskcoffee.cardstack.CardContainer>
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
