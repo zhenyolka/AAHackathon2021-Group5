@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class CreateItemViewModel : ViewModel() {
 
-    private var _isCreateSuccess = MutableLiveData(false)
+    private var _isCreateSuccess = MutableLiveData<Boolean>()
     val isCreateSuccess: LiveData<Boolean> get() = _isCreateSuccess
 
     fun createThing(title: String) {
