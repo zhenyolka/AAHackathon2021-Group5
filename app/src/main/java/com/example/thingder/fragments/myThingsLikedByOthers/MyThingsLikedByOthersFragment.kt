@@ -9,14 +9,14 @@ import com.example.thingder.R
 import com.example.thingder.databinding.FragmentMineLikedThingsBinding
 import com.example.thingder.domain.entities.Thing
 import com.example.thingder.domain.entities.User
-import com.example.thingder.domain.usecases.IFetchMyThingsUseCase
+import com.example.thingder.domain.usecases.IFetchMyThingsLikedByOthersUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class MyThingsLikedByOthersFragment : Fragment(R.layout.fragment_mine_liked_things) {
     private lateinit var binding: FragmentMineLikedThingsBinding
 
-    private val useCaseImplementation: IFetchMyThingsUseCase = object: IFetchMyThingsUseCase {
+    private val likedByOthersUseCaseImplementation: IFetchMyThingsLikedByOthersUseCase = object: IFetchMyThingsLikedByOthersUseCase {
         override fun fetch(): Flow<List<Pair<User, Thing>>> {
             return flow {
                 emit(listOf(
@@ -32,7 +32,7 @@ class MyThingsLikedByOthersFragment : Fragment(R.layout.fragment_mine_liked_thin
 
     private val myThingsLikedByOthersViewModel by viewModels<MyThingsLikedByOthersViewModel> {
         MyThingsLikedByOthersViewModelFactory(
-            fetchMyThingsUseCase = useCaseImplementation
+            fetchMyThingsLikedByOthersUseCase = likedByOthersUseCaseImplementation
         )
     }
 
