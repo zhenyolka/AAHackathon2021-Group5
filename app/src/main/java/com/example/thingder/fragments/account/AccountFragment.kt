@@ -6,7 +6,6 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.thingder.R
 import com.example.thingder.databinding.FragmentAccountBinding
-import com.example.thingder.fragments.userThings.AccountThingsAdapter
 
 class AccountFragment : Fragment(R.layout.fragment_account) {
     private lateinit var binding: FragmentAccountBinding
@@ -15,7 +14,7 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAccountBinding.bind(view)
 
-        binding.accountThingsRecycler.adapter = AccountThingsAdapter()
+        binding.accountThingsRecycler.adapter = AccountThingsAdapter(emptyList())
         binding.accountThingsRecycler.layoutManager = LinearLayoutManager(context,
             LinearLayoutManager.VERTICAL, false)
     }
