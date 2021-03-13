@@ -24,6 +24,17 @@
         android:name="com.example.thingder.fragments.myThings.MyThingsFragment"
         android:label="@string/nav_my_things_title"
         tools:layout="@layout/fragment_my_things">
+        <action
+            android:id="@+id/action_this_to_create_item"
+            app:destination="@id/navigation_create_item"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_create_item"
+        android:name="com.example.thingder.fragments.createItem.CreateItemFragment"
+        android:label="@string/nav_create_item"
+        tools:layout="@layout/fragment_create_item">
     </fragment>
 
 </navigation>

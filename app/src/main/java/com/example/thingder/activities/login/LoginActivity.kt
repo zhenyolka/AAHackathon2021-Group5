@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.thingder.MainActivity
@@ -26,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         loginViewModel.showToast.observe(this, { msg ->
-            Log.d("SIGNIN_TAG", msg)
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
         })
 
         loginViewModel.isProgressVisible.observe(this, { showProgress ->
