@@ -16,7 +16,7 @@ class CreateItemUseCase(
 ) : ICreateItemUseCase {
 
     override suspend fun createThing(title: String, uri: Uri): Boolean {
-        val downloadUrl = uploadImage(uri)
+        val downloadUrl = uploadImage(uri, title)
 
         db.collection(FireConstants.COLLECTION_THINGS)
             .document(auth.currentUser.uid + title)
@@ -29,9 +29,9 @@ class CreateItemUseCase(
         return true
     }
 
-    private suspend fun uploadImage(uri: Uri): String = withContext(Dispatchers.IO) {
+    private suspend fun uploadImage(uri: Uri, title: String): String = withContext(Dispatchers.IO) {
         val storagePathRef = storage.reference.child("images")
-        val imageName = auth.currentUser!!.uid + (1 + (Math.random() * 2564).toInt())
+        val imageName = auth.currentUser!!.uid + title
         val imageRef = storagePathRef.child(imageName)
         val uploadTask = imageRef.putFile(uri)
         var downloadUri = ""
