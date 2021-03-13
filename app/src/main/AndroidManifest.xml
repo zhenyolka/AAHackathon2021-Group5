@@ -19,6 +19,7 @@
 
         <activity android:name=".activities.login.LoginActivity">
         </activity>
+        <activity android:name=".activities.splash.SplashActivity" />
     </application>
 
 </manifest>
