@@ -1,4 +1,4 @@
-package com.example.thingder.fragments.swipes
+package com.example.thingder.fragments.main
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,7 +9,6 @@ import android.widget.TextView
 import com.asynctaskcoffee.cardstack.CardContainerAdapter
 import com.example.thingder.R
 import com.example.thingder.domain.entities.Thing
-import com.squareup.picasso.Picasso
 
 class MainAdapter(private val list: List<Thing>, context: Context) :
     CardContainerAdapter() {
@@ -20,7 +19,7 @@ class MainAdapter(private val list: List<Thing>, context: Context) :
 
     @SuppressLint("InflateParams")
     override fun getView(position: Int): View {
-        val v = layoutInflater.inflate(R.layout.fragment_swipe, null)
+        val v = layoutInflater.inflate(R.layout.view_holder_main_swipe, null)
         val thingImageView = v.findViewById<ImageView>(R.id.thingImage)
         val thingName = v.findViewById<TextView>(R.id.thingName)
 
@@ -28,7 +27,7 @@ class MainAdapter(private val list: List<Thing>, context: Context) :
 
         //Picasso.get().load(thing.thingImage).into(thingImageView)
 
-       thingName.text = thing.title
+        thingName.text = thing.title
 
         return v
     }
