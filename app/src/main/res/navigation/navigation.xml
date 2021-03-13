@@ -13,10 +13,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_list"
-        android:name="com.example.thingder.fragments.list.ListFragment"
-        android:label="@string/nav_list_title"
-        tools:layout="@layout/fragment_list">
+        android:id="@+id/navigation_mine_liked_things"
+        android:name="com.example.thingder.fragments.mineLikedThings.MineLikedThingsFragment"
+        android:label="@string/nav_mine_liked_things_title"
+        tools:layout="@layout/fragment_mine_liked_things">
     </fragment>
 
     <fragment
