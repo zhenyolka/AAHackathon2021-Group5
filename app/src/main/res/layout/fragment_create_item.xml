@@ -37,18 +37,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        app:srcCompat="@drawable/ic_launcher_foreground"
+        app:srcCompat="@drawable/ic_image"
         android:contentDescription="@string/tap_to_add_image" />
-
-    <ImageView
-        android:id="@+id/ivImageView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabSubmitPost"

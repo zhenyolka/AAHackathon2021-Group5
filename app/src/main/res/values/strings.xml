@@ -29,4 +29,6 @@
     <string name="register_failed">Register Failed</string>
     <string name="register_button">Register</string>
     <string name="sign_in_button">Sign In</string>
+    <string name="create_item_success">Create Item Success!</string>
+    <string name="create_item_failure">Create Item Falilure!</string>
 </resources>
