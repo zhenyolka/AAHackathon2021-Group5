@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.asynctaskcoffee.cardstack.CardListener
+import com.asynctaskcoffee.cardstack.px
 import com.example.thingder.R
 import com.example.thingder.databinding.FragmentMainBinding
 import com.example.thingder.domain.entities.Thing
@@ -23,6 +24,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         binding.cardContainer.setOnCardActionListener(object : CardListener {
             override fun onItemShow(position: Int, model: Any) {
                 /*Current card model on screen*/
+                binding.cardContainer.apply {
+                    this.maxStackSize = 2
+                    this.marginTop = 20.px
+                }
+
             }
 
             override fun onLeftSwipe(position: Int, model: Any) {
@@ -40,7 +46,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             override fun onSwipeCompleted() {
                 mainViewModel.refresh()
             }
-
         })
     }
 }
