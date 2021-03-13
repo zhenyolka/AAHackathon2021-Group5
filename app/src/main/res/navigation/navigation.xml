@@ -37,4 +37,11 @@
         tools:layout="@layout/fragment_create_item">
     </fragment>
 
+    <fragment
+        android:id="@+id/navigation_liked_things"
+        android:name="com.example.thingder.fragments.likedThings.LikedThingsFragment"
+        android:label="@string/nav_liked_things_title"
+        tools:layout="@layout/fragment_liked_things">
+    </fragment>
+
 </navigation>
