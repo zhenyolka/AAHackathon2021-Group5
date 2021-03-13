@@ -2,16 +2,14 @@ package com.example.thingder
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.thingder.databinding.ActivityMainBinding
-import com.example.thingder.fragments.login.LoginFragment
 
 
-class MainActivity : AppCompatActivity(), LoginFragment.BottomMenuVisibilityListener {
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +28,5 @@ class MainActivity : AppCompatActivity(), LoginFragment.BottomMenuVisibilityList
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
-    }
-
-    override fun setVisibility(isVisible: Boolean) {
-        binding.navView.isVisible = isVisible
     }
 }

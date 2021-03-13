@@ -3,18 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@+id/navigation_login">
-
-    <fragment
-        android:id="@+id/navigation_login"
-        android:name="com.example.thingder.fragments.login.LoginFragment"
-        android:label="@string/nav_login_title"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_this_to_main"
-            app:destination="@id/navigation_main"
-            />
-    </fragment>
+    app:startDestination="@+id/navigation_main">
 
     <fragment
         android:id="@+id/navigation_main"

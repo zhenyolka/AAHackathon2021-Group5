@@ -11,6 +11,10 @@
         android:theme="@style/Theme.Thingster"
         android:name=".App">
         <activity android:name=".MainActivity">
+
+        </activity>
+
+        <activity android:name=".activities.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
