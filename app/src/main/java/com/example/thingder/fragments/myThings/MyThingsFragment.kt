@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.thingder.R
 import com.example.thingder.data.usecases.FetchMyThingsUseCase
 import com.example.thingder.databinding.FragmentMyThingsBinding
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
 class MyThingsFragment : Fragment(R.layout.fragment_my_things) {
     private lateinit var binding: FragmentMyThingsBinding
     private val myThingsViewModel by viewModels<MyThingsViewModel> {
-        MyThingsViewModelFactory(FetchMyThingsUseCase())
+        MyThingsViewModelFactory(FetchMyThingsUseCase(FirebaseFirestore.getInstance(), Firebase.auth))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
