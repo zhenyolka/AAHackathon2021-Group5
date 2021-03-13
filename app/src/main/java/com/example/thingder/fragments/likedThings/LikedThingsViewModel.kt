@@ -8,7 +8,7 @@ import com.example.thingder.domain.entities.Thing
 import com.example.thingder.domain.usecases.IFetchLikedThingsUseCase
 
 class LikedThingsViewModel(private val fetchLikedThingsUseCase: IFetchLikedThingsUseCase): ViewModel() {
-    val things: LiveData<List<Thing>> get() = fetchLikedThingsUseCase.fetch().asLiveData()
+    val things: LiveData<List<Thing>> = fetchLikedThingsUseCase.fetch().asLiveData()
 
     fun deleteItem(thing: Thing) {
         // TODO: implement function
