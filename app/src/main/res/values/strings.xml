@@ -14,6 +14,7 @@
     <string name="nav_main_title">Main</string>
     <string name="nav_mine_liked_things_title">Mine Liked Things</string>
     <string name="nav_my_things_title">My Things</string>
+    <string name="nav_create_item">Create thing</string>
     <string name="nav_liked_things_title">Things I liked</string>
 
     <string name="welcome_to_thingder">Welcome to Thingder</string>

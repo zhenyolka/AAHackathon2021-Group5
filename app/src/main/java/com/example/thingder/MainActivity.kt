@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.navigation_main,
                 R.id.navigation_mine_liked_things,
-                R.id.navigation_my_things
+                R.id.navigation_my_things,
+                R.id.navigation_liked_things
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
