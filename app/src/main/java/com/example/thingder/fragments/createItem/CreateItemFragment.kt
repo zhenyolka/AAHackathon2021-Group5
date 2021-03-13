@@ -18,10 +18,10 @@ import kotlinx.coroutines.flow.flow
 
 class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
     private lateinit var binding: FragmentCreateItemBinding
-    private val createItemViewModel by viewModels <CreateItemViewModel> {
+    private val createItemViewModel by viewModels<CreateItemViewModel> {
         CreateItemViewModelFactory(object : ICreateItemUseCase {
-            override suspend fun createThing(thing: Thing){
-
+            override suspend fun createThing(thing: Thing): Boolean {
+                return thing.title.isNotEmpty()
             }
         })
     }
