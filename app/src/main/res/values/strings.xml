@@ -35,4 +35,7 @@
     <string name="logout_alert_dialog_pos_btn_text">Yes</string>
     <string name="logout_alert_dialog_neg_btn_text">No</string>
     <string name="logout_success_toast_text">Logout Success</string>
+    <string name="create_item_success">Create Item Success!</string>
+    <string name="create_item_failure">Create Item Falilure!</string>
+
 </resources>

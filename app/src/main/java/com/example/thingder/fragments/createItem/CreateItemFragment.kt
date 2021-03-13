@@ -40,10 +40,10 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
 
         createItemViewModel.isCreateSuccess.observe(requireActivity(), { isCreateSuccess ->
             if (isCreateSuccess) {
-                Toast.makeText(requireContext(), "Create Item Success!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.create_item_success), Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
             } else {
-                Toast.makeText(requireContext(), "Create Item Falilure!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.create_item_failure), Toast.LENGTH_SHORT).show()
 
             }
         })
@@ -56,9 +56,9 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
     }
 
     private fun openTakeImageIntent() {
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        val intent = Intent()
         intent.type = "image/*"
-        intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+        intent.action = Intent.ACTION_GET_CONTENT
         intent.resolveActivity(requireActivity().packageManager)?.let {
             startActivityForResult(intent, OPEN_GALLERY_CODE)
         }
