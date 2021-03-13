@@ -11,12 +11,10 @@
     <string name="login_failed">"Login failed"</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nav_login_title">Login</string>
     <string name="nav_main_title">Main</string>
     <string name="nav_list_title">List</string>
     <string name="nav_account_title">Account</string>
 
     <string name="welcome_to_thingder">Welcome to Thingder</string>
     <string name="you_are_not_authorised">You are not authorised</string>
-
 </resources>
