@@ -5,13 +5,26 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.thingder.R
 import com.example.thingder.databinding.FragmentCreateItemBinding
+import com.example.thingder.domain.entities.Thing
+import com.example.thingder.domain.usecase.IFetchMyThings
+import com.example.thingder.domain.usecases.ICreateItemUseCase
+import com.example.thingder.fragments.myThings.MyThingsViewModelFactory
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
     private lateinit var binding: FragmentCreateItemBinding
-    private val createItemViewModel by viewModels<CreateItemViewModel>()
+    private val createItemViewModel by viewModels <CreateItemViewModel> {
+        CreateItemViewModelFactory(object : ICreateItemUseCase {
+            override suspend fun createThing(thing: Thing){
+
+            }
+        })
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
