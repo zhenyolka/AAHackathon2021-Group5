@@ -27,10 +27,9 @@ class FetchMyThingsUseCase(
     }
 
     private fun QueryDocumentSnapshot.toDomain(): Thing {
-        //TODO: return id
-        //val id = this["id"] as Int
+        val id = this[FireConstants.KEY_THING_ID].toString()
         val title = this[FireConstants.KEY_THING_TITLE].toString()
-        return Thing(3, title)
+        return Thing(id, title)
     }
 
 }

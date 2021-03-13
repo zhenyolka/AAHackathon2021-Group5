@@ -1,29 +1,20 @@
 package com.example.thingder.data.usecases.tinder
 
+import com.example.thingder.data.usecases.FetchMyThingsUseCase
+import com.example.thingder.data.usecases.FireConstants
 import com.example.thingder.domain.entities.Thing
 import com.example.thingder.domain.usecases.tinder.IFetchNearbyThingUseCase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QueryDocumentSnapshot
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.MutableStateFlow
 
-class FetchNearbyThingUseCase: IFetchNearbyThingUseCase {
-    override fun fetch(): Flow<List<Thing>> {
-        return flow {
-            emit(
-                    listOf(
-                            Thing(
-                                    id = 1,
-                                    title = "Brick"
-                            ),
-                            Thing(
-                                    id = 2012,
-                                    title = "End of The World Button"
-                            ),
-                            Thing(
-                                    id = 42,
-                                    title = "Universe"
-                            )
-                    )
-            )
-        }
-    }
+//TODO CHANGE LOGIC
+class FetchNearbyThingUseCase(
+    private val db: FirebaseFirestore,
+    private val auth: FirebaseAuth
+) : IFetchNearbyThingUseCase {
+    private val useCase = FetchMyThingsUseCase(db, auth)
+    override fun fetch() = useCase.fetch()
 }
