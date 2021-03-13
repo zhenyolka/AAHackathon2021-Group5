@@ -1,4 +1,4 @@
-package com.example.thingder.fragments.userThings
+package com.example.thingder.fragments.account
 
 import android.view.LayoutInflater
 import android.view.View
