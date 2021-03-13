@@ -3,28 +3,16 @@ package com.example.thingder.fragments.likedThings
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.example.thingder.domain.entities.Thing
+import com.example.thingder.domain.usecases.IFetchLikedThingsUseCase
 
-class LikedThingsViewModel: ViewModel() {
+class LikedThingsViewModel(private val fetchLikedThingsUseCase: IFetchLikedThingsUseCase): ViewModel() {
     private val _things = MutableLiveData<List<Thing>>()
     val things: LiveData<List<Thing>> get() = _things
 
     init {
-        // TODO: replace with API call
-        _things.postValue(listOf(
-            Thing(
-                id = 1,
-                title = "Brick"
-            ),
-            Thing(
-                id = 2012,
-                title = "End of The World Button"
-            ),
-            Thing(
-                id = 42,
-                title = "Universe"
-            )
-        ))
+        _things.postValue(fetchLikedThingsUseCase.fetch().asLiveData().value)
     }
 
     fun deleteItem(thing: Thing) {
