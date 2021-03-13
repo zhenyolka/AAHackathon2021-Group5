@@ -1,4 +1,4 @@
-package com.example.thingder.fragments.add
+package com.example.thingder.fragments.createItem
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,8 +11,7 @@ class CreateItemViewModel : ViewModel() {
     val text: LiveData<String> = _text
 
     fun createThing(title: String) {
-
-
+        _text.value = "Created thing with title: $title"
     }
 
 }

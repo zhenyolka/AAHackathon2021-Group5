@@ -1,13 +1,12 @@
-package com.example.thingder.fragments.add
+package com.example.thingder.fragments.createItem
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.activity.viewModels
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.thingder.R
-import com.example.thingder.activities.login.LoginViewModel
 import com.example.thingder.databinding.FragmentCreateItemBinding
 
 class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
@@ -25,9 +24,8 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
         }
 
         createItemViewModel.text.observe(requireActivity(), { msg ->
-            Log.d("SIGNIN_TAG", msg)
+            Log.d("CREATEITEM_TAG", msg)
+            Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
         })
     }
-
-
 }
