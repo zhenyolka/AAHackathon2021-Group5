@@ -9,11 +9,17 @@ import com.example.thingder.R
 import com.example.thingder.data.usecases.FetchLikedThingsUseCase
 import com.example.thingder.databinding.FragmentLikedThingsBinding
 import com.example.thingder.fragments.myThings.MyThingsAdapter
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
 class LikedThingsFragment: Fragment(R.layout.fragment_liked_things) {
     private lateinit var binding: FragmentLikedThingsBinding
     private val likedThingsViewModel by viewModels<LikedThingsViewModel>{
-        LikedThingsViewModelFactory(FetchLikedThingsUseCase())
+        LikedThingsViewModelFactory(FetchLikedThingsUseCase(
+            FirebaseFirestore.getInstance(),
+            Firebase.auth)
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

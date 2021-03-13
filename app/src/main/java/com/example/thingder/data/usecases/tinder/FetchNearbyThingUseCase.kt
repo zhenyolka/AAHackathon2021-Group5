@@ -11,15 +11,15 @@ class FetchNearbyThingUseCase: IFetchNearbyThingUseCase {
             emit(
                     listOf(
                             Thing(
-                                    id = 1,
+                                    id = "1",
                                     title = "Brick"
                             ),
                             Thing(
-                                    id = 2012,
+                                    id = "2012",
                                     title = "End of The World Button"
                             ),
                             Thing(
-                                    id = 42,
+                                    id = "42",
                                     title = "Universe"
                             )
                     )

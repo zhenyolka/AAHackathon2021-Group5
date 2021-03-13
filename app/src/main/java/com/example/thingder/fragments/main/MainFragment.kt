@@ -12,13 +12,18 @@ import com.example.thingder.data.usecases.tinder.FetchNearbyThingUseCase
 import com.example.thingder.data.usecases.tinder.LikeThingUseCase
 import com.example.thingder.databinding.FragmentMainBinding
 import com.example.thingder.domain.entities.Thing
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
 class MainFragment : Fragment(R.layout.fragment_main) {
     private lateinit var binding: FragmentMainBinding
     private val mainViewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
                 fetchNearbyThingUseCase = FetchNearbyThingUseCase(),
-                likeThingUseCase = LikeThingUseCase(),
+                likeThingUseCase = LikeThingUseCase(
+                    FirebaseFirestore.getInstance(),
+                    Firebase.auth),
                 dislikeThingUseCase = DislikeThingUseCase()
         )
     }
