@@ -9,6 +9,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.thingder.R
 import com.example.thingder.data.usecases.CreateItemUseCase
 import com.example.thingder.databinding.FragmentCreateItemBinding
+import com.example.thingder.domain.entities.Thing
+import com.example.thingder.domain.usecases.ICreateItemUseCase
+
 
 class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
     private lateinit var binding: FragmentCreateItemBinding
