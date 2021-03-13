@@ -27,6 +27,9 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
             if (isCreateSuccess) {
                 Toast.makeText(requireContext(), "Create Item Success!", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
+            } else {
+                Toast.makeText(requireContext(), "Create Item Falilure!", Toast.LENGTH_SHORT).show()
+
             }
         })
     }
