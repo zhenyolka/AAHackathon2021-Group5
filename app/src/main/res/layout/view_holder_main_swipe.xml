@@ -5,22 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <ImageView
+        android:id="@+id/thingImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/gradient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_mask"
+        app:layout_constraintBottom_toBottomOf="@id/thingImage"
+        app:layout_constraintEnd_toEndOf="@id/thingImage"
+        app:layout_constraintStart_toStartOf="@+id/thingImage" />
+
+    <TextView
         android:id="@+id/thingName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/thingImage"
         app:layout_constraintEnd_toEndOf="@+id/thingImage"
         app:layout_constraintStart_toStartOf="@+id/thingImage"
-        android:layout_marginBottom="32dp"
         tools:text="Random Thing" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/thingImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
