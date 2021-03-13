@@ -15,7 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:alpha="0.8"
-        android:paddingTop="400dp"
         android:src="@drawable/ic_mask"
         app:layout_constraintBottom_toBottomOf="@id/thingImage"
         app:layout_constraintEnd_toEndOf="@id/thingImage"
