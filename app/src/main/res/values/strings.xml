@@ -16,7 +16,9 @@
     <string name="nav_my_things_title">My Things</string>
     <string name="nav_create_item">Create thing</string>
     <string name="nav_liked_things_title">Things I liked</string>
-
     <string name="welcome_to_thingder">Welcome to Thingder</string>
     <string name="you_are_not_authorised">You are not authorised</string>
+    <string name="add_thing">Add thing</string>
+    <string name="title">Title</string>
+    <string name="write_your_post">Write your post...</string>
 </resources>
