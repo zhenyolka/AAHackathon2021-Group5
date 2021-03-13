@@ -8,8 +8,15 @@ class CreateItemViewModel : ViewModel() {
     private val _text = MutableLiveData<String>()
     val text: LiveData<String> = _text
 
-    fun createThing(title: String) {
-        _text.value = "Created thing with title: $title"
-    }
+    private var _isCreateSuccess = MutableLiveData(false)
+    val isCreateSuccess: LiveData<Boolean> get() = _isCreateSuccess
 
+    fun createThing(title: String) {
+        if (title.isNotEmpty()) {
+            _text.value = "Created thing with title: $title"
+            _isCreateSuccess.value = true
+        } else {
+            _isCreateSuccess.value = false
+        }
+    }
 }

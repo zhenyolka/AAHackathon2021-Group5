@@ -27,7 +27,10 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
         createItemViewModel.text.observe(requireActivity(), { msg ->
             Log.d("CREATEITEM_TAG", msg)
             Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
-            if (msg.isNotEmpty()){
+        })
+
+        createItemViewModel.isCreateSuccess.observe(requireActivity(), { isCreateSuccess ->
+            if (isCreateSuccess) {
                 findNavController().popBackStack()
             }
         })
