@@ -15,13 +15,13 @@ class CreateItemUseCase(
     auth: FirebaseAuth
 ) : ICreateItemUseCase {
     private val document = firestore
-        .collection("users")
+        .collection(FireConstants.COLLECTION_USERS)
         .document(auth.currentUser.uid)
-        .collection("things")
+        .collection(FireConstants.COLLECTION_THINGS)
 
     override suspend fun createThing(thing: Thing): Boolean {
         document.document(thing.title).set(
-            hashMapOf("title" to thing.title)
+            hashMapOf(FireConstants.KEY_THING_TITLE to thing.title)
         )
         return true
     }
