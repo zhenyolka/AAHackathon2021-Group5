@@ -20,11 +20,15 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private lateinit var binding: FragmentMainBinding
     private val mainViewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
-                fetchNearbyThingUseCase = FetchNearbyThingUseCase(),
-                likeThingUseCase = LikeThingUseCase(
-                    FirebaseFirestore.getInstance(),
-                    Firebase.auth),
-                dislikeThingUseCase = DislikeThingUseCase()
+            fetchNearbyThingUseCase = FetchNearbyThingUseCase(
+                FirebaseFirestore.getInstance(),
+                Firebase.auth
+            ),
+            likeThingUseCase = LikeThingUseCase(
+                FirebaseFirestore.getInstance(),
+                Firebase.auth
+            ),
+            dislikeThingUseCase = DislikeThingUseCase()
         )
     }
 
