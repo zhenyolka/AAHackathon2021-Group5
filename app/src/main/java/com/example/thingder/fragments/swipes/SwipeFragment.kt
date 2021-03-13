@@ -10,7 +10,7 @@ import com.asynctaskcoffee.cardstack.CardContainerAdapter
 import com.example.thingder.R
 import com.squareup.picasso.Picasso
 
-class MainAdapter(private val list: ArrayList</*Model*/>, context: Context) :
+class MainAdapter(private val list: List<Int>, context: Context) :
     CardContainerAdapter() {
 
     private var layoutInflater: LayoutInflater = LayoutInflater.from(context)
@@ -25,9 +25,9 @@ class MainAdapter(private val list: ArrayList</*Model*/>, context: Context) :
 
         val thing = getItem(position)
 
-        Picasso.get().load(thing.thingImage).into(thingImageView)
+        //Picasso.get().load(thing.thingImage).into(thingImageView)
 
-       thingName.text = thing.thingName
+       //thingName.text = thing.thingName
 
         return v
     }
