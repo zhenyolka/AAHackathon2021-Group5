@@ -14,8 +14,7 @@
         android:id="@+id/gradient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:alpha="0.8"
-        android:src="@drawable/ic_mask"
+        android:background="@drawable/ic_mask"
         app:layout_constraintBottom_toBottomOf="@id/thingImage"
         app:layout_constraintEnd_toEndOf="@id/thingImage"
         app:layout_constraintStart_toStartOf="@+id/thingImage" />
