@@ -37,7 +37,7 @@
             app:layout_constraintStart_toEndOf="@id/view_holder_mine_liked_things_user_photo"
             app:layout_constraintEnd_toStartOf="@id/view_holder_mine_liked_things_thing_photo"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_shuffle" />
+            android:src="@drawable/right_arrow" />
 
         <ImageView
             android:id="@+id/view_holder_mine_liked_things_thing_photo"
