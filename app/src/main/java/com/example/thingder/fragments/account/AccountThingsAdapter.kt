@@ -8,8 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.thingder.R
 
-class AccountThingsAdapter: RecyclerView.Adapter<DataViewHolder>() {
-    private var things = listOf<Int>() // listOf<Thing>()
+class AccountThingsAdapter(private val things: List<Int> /*List<Thing>?*/): RecyclerView.Adapter<DataViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         return DataViewHolder(LayoutInflater.from(parent.context)
@@ -22,10 +21,6 @@ class AccountThingsAdapter: RecyclerView.Adapter<DataViewHolder>() {
 
     override fun getItemCount(): Int = things.size
 
-    fun bindThings(newThings: List<Int>? /*List<Thing>?*/) {
-        newThings?.let { things = newThings }
-        notifyDataSetChanged()
-    }
 }
 
 class DataViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
