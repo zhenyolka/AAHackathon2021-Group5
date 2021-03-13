@@ -30,61 +30,15 @@ class CreateItemViewModel(private val iCreateItemUseCase: ICreateItemUseCase) : 
         _imageUri.value = uri
     }
 
-    fun createThing(title: String, bitmap: Bitmap?) {
+    fun createThing(title: String) {
         viewModelScope.launch {
-            val thing = Thing(Random().nextInt(), title)
-            val result = iCreateItemUseCase.createThing(thing)
-            _isCreateSuccess.postValue(result)
+            val uri = _imageUri.value
+            if (uri == null) {
+                _isCreateSuccess.postValue(false)
+            } else {
+                val result = iCreateItemUseCase.createThing(title, uri)
+                _isCreateSuccess.postValue(result)
+            }
         }
-
-    }
-
-    private suspend fun uploadImage(bitmap: Bitmap?): String = withContext(Dispatchers.IO) {
-        var downloadUri = ""
-        if (bitmap != null) {
-            val storage: FirebaseStorage = Firebase.storage
-
-            val storageRef = storage.reference
-            val imagesRef = storageRef.child("images")
-
-            val imageName =
-                Firebase.auth.currentUser!!.uid + (1 + (Math.random() * 2564).toInt())
-
-            val imageRef = imagesRef.child(imageName)
-
-            val baos = ByteArrayOutputStream()
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-            val imageData = baos.toByteArray()
-
-            val uploadTask = imageRef.putBytes(imageData)
-            uploadTask
-                .addOnFailureListener {
-                    // Handle unsuccessful uploads
-                    Log.d("LOAD_TAG", "uploadTask Failure")
-                }
-                .addOnSuccessListener { taskSnapshot ->
-                    // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
-                    Log.d("LOAD_TAG", "taskSnapshot ${taskSnapshot.metadata?.sizeBytes}")
-
-                }
-                .continueWithTask { task ->
-                    if (!task.isSuccessful) {
-                        task.exception?.let {
-                            throw it
-                        }
-                    }
-                    imageRef.downloadUrl
-                }
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        downloadUri = task.result.toString()
-                        Log.d("LOAD_TAG", "downloadUri $downloadUri")
-                    } else {
-                        // Handle failures
-                        Log.d("LOAD_TAG", "downloadUri Failure")
-                    }
-                }
-        }
-        return@withContext downloadUri
     }
 }

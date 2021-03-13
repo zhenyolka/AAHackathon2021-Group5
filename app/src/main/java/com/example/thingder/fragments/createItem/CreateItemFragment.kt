@@ -29,16 +29,13 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
         )
     }
 
-    var bitmap: Bitmap? = null
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreateItemBinding.bind(view)
 
         binding.fabSubmitPost.setOnClickListener {
             val title = binding.tvTitle.text.toString()
-            bitmap = binding.pictureImageView.drawable.toBitmap()
-            createItemViewModel.createThing(title, bitmap)
+            createItemViewModel.createThing(title)
         }
 
         createItemViewModel.isCreateSuccess.observe(requireActivity(), { isCreateSuccess ->
@@ -63,17 +60,21 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
         intent.type = "image/*"
         intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
         intent.resolveActivity(requireActivity().packageManager)?.let {
-            startActivityForResult(intent, 113)
+            startActivityForResult(intent, OPEN_GALLERY_CODE)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == 113 && resultCode == Activity.RESULT_OK) {
+        if (requestCode == OPEN_GALLERY_CODE && resultCode == Activity.RESULT_OK) {
             data?.data?.let {
                 createItemViewModel.setImageUri(it)
             }
         }
+    }
+
+    companion object {
+        private const val OPEN_GALLERY_CODE = 113
     }
 }
