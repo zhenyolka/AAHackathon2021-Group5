@@ -21,8 +21,7 @@ class FetchMyThingsUseCase(
 
     override fun fetch(): Flow<List<Thing>> {
         document.addSnapshotListener { value, error ->
-            val list = mutableListOf<Thing>()
-            value?.map { it -> it.toDomain() }
+            val list = value?.map { it -> it.toDomain() } ?: emptyList()
             stateSharedFlow.value = list
         }
         return stateSharedFlow
