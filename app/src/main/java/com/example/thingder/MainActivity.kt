@@ -59,25 +59,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLogoutDialog() {
-        val builder = AlertDialog.Builder(this)
+        val alertDialog = AlertDialog.Builder(this)
             .setTitle(getString(R.string.logout_alert_dialog_title))
             .setMessage(getString(R.string.logout_alert_dialog_message))
-
-        builder.setPositiveButton(getString(R.string.logout_alert_dialog_pos_btn_text)) { dialog, which ->
-            logout()
-        }
-        builder.setNegativeButton(getString(R.string.logout_alert_dialog_neg_btn_text)) { dialog, which ->
-            //Do nothing
-        }
-
-        val alertDialog = builder.create()
+            .setPositiveButton(getString(R.string.logout_alert_dialog_pos_btn_text)) { dialog, which ->
+                logout()
+            }
+            .setNegativeButton(getString(R.string.logout_alert_dialog_neg_btn_text)) { dialog, which ->
+            }
+            .create()
         alertDialog.show()
     }
 
     private fun logout() {
         intent = Intent(this, LoginActivity::class.java)
         Firebase.auth.signOut()
-        Toast.makeText(applicationContext, getString(R.string.logout_success_toast_text), Toast.LENGTH_SHORT).show()
+        //Toast.makeText(applicationContext, getString(R.string.logout_success_toast_text), Toast.LENGTH_SHORT).show()
         startActivity(intent)
     }
 }
