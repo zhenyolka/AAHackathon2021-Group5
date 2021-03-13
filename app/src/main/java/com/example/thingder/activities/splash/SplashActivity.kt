@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.thingder.MainActivity
+import com.example.thingder.R
 import com.example.thingder.activities.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -12,6 +13,8 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.splash_screen)
+
         val intent = if (viewModel.authorized) {
             Intent(this, MainActivity::class.java)
         } else { Intent(this, LoginActivity::class.java)
