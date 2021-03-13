@@ -1,10 +1,12 @@
 package com.example.thingder.activities.login
 
 import android.app.Activity
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.thingder.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -13,8 +15,8 @@ class LoginViewModel : ViewModel() {
     private var showProgress = MutableLiveData(false)
     val isProgressVisible: LiveData<Boolean> get() = showProgress
 
-    private var _showToast = MutableLiveData<String>()
-    val showToast: LiveData<String> get() = _showToast
+    private var _showToast = MutableLiveData<Int>()
+    val showToast: LiveData<Int> get() = _showToast
 
     private var auth: FirebaseAuth = Firebase.auth
 
@@ -36,10 +38,10 @@ class LoginViewModel : ViewModel() {
                 showProgress.value = false
 
                 if (task.isSuccessful) {
-                    _showToast.value = "Sign In Success"
+                    _showToast.value = R.string.sign_in_success
                     refreshAuthStatus()
                 } else {
-                    _showToast.value = "Sign In Failed"
+                    _showToast.value = R.string.sign_in_failed
                 }
             }
     }
@@ -53,16 +55,11 @@ class LoginViewModel : ViewModel() {
                 showProgress.value = false
 
                 if (task.isSuccessful) {
-                    _showToast.value = "Register Success"
+                    _showToast.value = R.string.register_success
                     refreshAuthStatus()
                 } else {
-                    _showToast.value = "Register Failed"
+                    _showToast.value = R.string.register_failed
                 }
             }
-    }
-
-    fun logout() {
-        Firebase.auth.signOut()
-        refreshAuthStatus()
     }
 }

@@ -7,12 +7,21 @@ import androidx.fragment.app.viewModels
 import com.asynctaskcoffee.cardstack.CardListener
 import com.asynctaskcoffee.cardstack.px
 import com.example.thingder.R
+import com.example.thingder.data.usecases.tinder.DislikeThingUseCase
+import com.example.thingder.data.usecases.tinder.FetchNearbyThingUseCase
+import com.example.thingder.data.usecases.tinder.LikeThingUseCase
 import com.example.thingder.databinding.FragmentMainBinding
 import com.example.thingder.domain.entities.Thing
 
 class MainFragment : Fragment(R.layout.fragment_main) {
     private lateinit var binding: FragmentMainBinding
-    private val mainViewModel by viewModels<MainViewModel>()
+    private val mainViewModel by viewModels<MainViewModel> {
+        MainViewModelFactory(
+                fetchNearbyThingUseCase = FetchNearbyThingUseCase(),
+                likeThingUseCase = LikeThingUseCase(),
+                dislikeThingUseCase = DislikeThingUseCase()
+        )
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,7 +53,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             }
 
             override fun onSwipeCompleted() {
-                mainViewModel.refresh()
+                /*Called when there is no cards*/
             }
         })
     }

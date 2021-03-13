@@ -1,50 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    app:cardUseCompatPadding="true"
+    app:cardElevation="@dimen/cardview_elevation" >
 
-    <ImageView
-        android:id="@+id/view_holder_mine_liked_things_user_photo"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:src="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/view_holder_mine_liked_things_user_name"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/view_holder_mine_liked_things_user_photo"
-        app:layout_constraintStart_toStartOf="@id/view_holder_mine_liked_things_user_photo"
-        tools:text="User Name" />
+        android:padding="@dimen/cardview_padding" >
 
-    <ImageView
-        android:id="@+id/view_holder_mine_liked_things_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/view_holder_mine_liked_things_user_photo"
-        app:layout_constraintEnd_toStartOf="@id/view_holder_mine_liked_things_thing_photo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/ic_arrow_right" />
+        <ImageView
+            android:id="@+id/view_holder_mine_liked_things_user_photo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/view_holder_mine_liked_things_thing_photo"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:src="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/view_holder_mine_liked_things_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/view_holder_mine_liked_things_user_photo"
+            app:layout_constraintStart_toStartOf="@id/view_holder_mine_liked_things_user_photo"
+            tools:text="User Name" />
 
-    <TextView
-        android:id="@+id/view_holder_mine_liked_things_thing_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/view_holder_mine_liked_things_thing_photo"
-        app:layout_constraintEnd_toEndOf="@id/view_holder_mine_liked_things_thing_photo"
-        tools:text="Thing Name" />
+        <ImageView
+            android:id="@+id/view_holder_mine_liked_things_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view_holder_mine_liked_things_user_photo"
+            app:layout_constraintEnd_toStartOf="@id/view_holder_mine_liked_things_thing_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_shuffle" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/view_holder_mine_liked_things_thing_photo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/view_holder_mine_liked_things_thing_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/view_holder_mine_liked_things_thing_photo"
+            app:layout_constraintEnd_toEndOf="@id/view_holder_mine_liked_things_thing_photo"
+            tools:text="Thing Name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
