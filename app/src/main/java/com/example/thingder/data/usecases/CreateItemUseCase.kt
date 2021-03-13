@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
 class CreateItemUseCase(
@@ -16,7 +17,8 @@ class CreateItemUseCase(
 ) : ICreateItemUseCase {
 
     override suspend fun createThing(title: String, uri: Uri): Boolean {
-        val downloadUrl = uploadImage(uri, title)
+        val downloadUri = uploadImage(uri, title)
+        Log.d("LOAD_TAG", "downloadUri: $downloadUri")
 
         db.collection(FireConstants.COLLECTION_THINGS)
             .document(auth.currentUser.uid + title)
@@ -34,22 +36,10 @@ class CreateItemUseCase(
         val imageName = auth.currentUser!!.uid + title
         val imageRef = storagePathRef.child(imageName)
         val uploadTask = imageRef.putFile(uri)
-        var downloadUri = ""
-        uploadTask.continueWithTask { task ->
-            if (!task.isSuccessful) {
-                task.exception?.let {
-                    Log.d("LOAD_TAG", "exception: ${it.message}")
-                }
-            }
-            storagePathRef.downloadUrl
-        }.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                downloadUri = task.result.toString()
-                Log.d("LOAD_TAG", "downloadUri: $downloadUri")
-            } else {
-                Log.d("LOAD_TAG", "downloadUri Failure")
-            }
-        }
-        return@withContext downloadUri
+
+        uploadTask.await()
+        val image = imageRef.downloadUrl.await()
+
+        return@withContext image.toString()
     }
 }
