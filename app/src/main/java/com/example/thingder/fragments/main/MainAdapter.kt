@@ -11,6 +11,7 @@ import com.asynctaskcoffee.cardstack.CardContainer
 import com.asynctaskcoffee.cardstack.CardContainerAdapter
 import com.example.thingder.R
 import com.example.thingder.domain.entities.Thing
+import com.squareup.picasso.Picasso
 
 class MainAdapter(private val list: List<Thing>, context: Context) :
     CardContainerAdapter() {
@@ -27,7 +28,7 @@ class MainAdapter(private val list: List<Thing>, context: Context) :
 
         val thing = getItem(position)
 
-        //Picasso.get().load(thing.thingImage).into(thingImageView)
+        Picasso.get().load(thing.imageUrl).into(thingImageView)
 
         thingName.text = thing.title
 
