@@ -63,6 +63,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:18.0.2'
     implementation 'com.google.firebase:firebase-firestore-ktx:22.1.1'
 
+    // Storage (Kotlin)
+    implementation 'com.google.firebase:firebase-storage-ktx:19.2.1'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -71,7 +74,4 @@ dependencies {
     implementation 'com.github.AsynctaskCoffee:tinderlikecardstack:1.0'
 
     implementation 'com.squareup.picasso:picasso:2.71828'
-
-    //Firestore
-    implementation 'com.google.firebase:firebase-firestore-ktx:22.1.1'
 }
