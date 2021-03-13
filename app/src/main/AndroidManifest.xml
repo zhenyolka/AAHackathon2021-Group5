@@ -22,4 +22,11 @@
         </activity>
     </application>
 
+    <queries>
+        <!-- Gallery -->
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+        </intent>
+    </queries>
+
 </manifest>
