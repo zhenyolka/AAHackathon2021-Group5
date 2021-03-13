@@ -20,10 +20,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_account"
-        android:name="com.example.thingder.fragments.account.AccountFragment"
-        android:label="@string/nav_account_title"
-        tools:layout="@layout/fragment_account">
+        android:id="@+id/navigation_my_things"
+        android:name="com.example.thingder.fragments.myThings.MyThingsFragment"
+        android:label="@string/nav_my_things_title"
+        tools:layout="@layout/fragment_my_things">
     </fragment>
 
 </navigation>
