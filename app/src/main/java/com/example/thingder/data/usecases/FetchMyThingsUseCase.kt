@@ -21,34 +21,16 @@ class FetchMyThingsUseCase(
     override fun fetch(): Flow<List<Thing>> {
 
         document.addSnapshotListener { value, error ->
-            //TODO: map into list of things
             val list = mutableListOf<Thing>()
             value?.forEach {
-                val id = it["id"] as Int
+                //TODO: return id
+                //val id = it["id"] as Int
                 val title = it["title"].toString()
-                list.add(Thing(id, title))
+                list.add(Thing(3, title))
             }
             stateSharedFlow.value = list
         }
         return stateSharedFlow
-//        return flow {
-//            emit(
-//                listOf(
-//                    Thing(
-//                        id = 1,
-//                        title = "Brick"
-//                    ),
-//                    Thing(
-//                        id = 2012,
-//                        title = "End of The World Button"
-//                    ),
-//                    Thing(
-//                        id = 42,
-//                        title = "Universe"
-//                    )
-//                )
-//            )
-//
-//        }
     }
+
 }
