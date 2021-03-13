@@ -1,6 +1,5 @@
 package com.example.thingder.data.usecases
 
-import android.os.Parcel
 import com.example.thingder.domain.entities.Thing
 import com.example.thingder.domain.usecases.IFetchMyThingsUseCase
 import com.google.firebase.auth.FirebaseAuth
