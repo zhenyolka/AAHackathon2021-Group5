@@ -27,11 +27,11 @@ class MainViewModel: ViewModel() {
         ))
     }
 
-    fun onSwipeRight(position: Int, thing: Thing) {
+    fun onSwipeRight(thing: Thing) {
 
     }
 
-    fun onSwipeLeft(position: Int, thing: Thing) {
+    fun onSwipeLeft(thing: Thing) {
 
     }
 

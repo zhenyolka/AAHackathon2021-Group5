@@ -26,11 +26,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             }
 
             override fun onLeftSwipe(position: Int, model: Any) {
-                mainViewModel.onSwipeLeft(position, model as Thing)
+                mainViewModel.onSwipeLeft(model as Thing)
             }
 
             override fun onRightSwipe(position: Int, model: Any) {
-                mainViewModel.onSwipeRight(position, model as Thing)
+                mainViewModel.onSwipeRight(model as Thing)
             }
 
             override fun onSwipeCancel(position: Int, model: Any) {
