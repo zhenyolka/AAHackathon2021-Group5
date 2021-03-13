@@ -7,9 +7,9 @@
         android:title="@string/nav_main_title" />
 
     <item
-        android:id="@+id/navigation_list"
+        android:id="@+id/navigation_mine_liked_things"
         android:icon="@drawable/ic_checklist"
-        android:title="@string/nav_list_title" />
+        android:title="@string/nav_mine_liked_things_title" />
 
     <item
         android:id="@+id/navigation_account"

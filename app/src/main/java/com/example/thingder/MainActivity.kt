@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), LoginFragment.BottomMenuVisibilityList
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_main,
-                R.id.navigation_list,
+                R.id.navigation_mine_liked_things,
                 R.id.navigation_account
             )
         )
