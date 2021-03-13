@@ -12,12 +12,11 @@ class FetchMyThingsUseCase(
     private val auth: FirebaseAuth
 ): IFetchMyThingsUseCase {
 
-    private val document = db
-        .collection(FireConstants.COLLECTION_USERS)
-        .document(auth.currentUser.uid)
-        .collection(FireConstants.COLLECTION_THINGS)
-
     private val stateSharedFlow = MutableStateFlow<List<Thing>>(emptyList())
+
+    private val document = db
+        .collection(FireConstants.COLLECTION_THINGS)
+        .whereEqualTo(FireConstants.KEY_USER_ID, auth.currentUser.uid)
 
     override fun fetch(): Flow<List<Thing>> {
         document.addSnapshotListener { value, error ->
