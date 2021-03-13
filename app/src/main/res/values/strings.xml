@@ -21,6 +21,7 @@
     <string name="add_thing">Add thing</string>
     <string name="title">Title</string>
     <string name="write_your_post">Write your post...</string>
+    <string name="tap_to_add_image">Tap to add image</string>
     <string name="required">Required</string>
     <string name="sign_in_success">Sign In Success</string>
     <string name="sign_in_failed">Sign In Failed</string>

@@ -1,7 +1,7 @@
 package com.example.thingder.domain.usecases
 
-import com.example.thingder.domain.entities.Thing
+import android.net.Uri
 
 interface ICreateItemUseCase {
-    suspend fun createThing(thing: Thing): Boolean
+    suspend fun createThing(title: String, uri: Uri): Boolean
 }
