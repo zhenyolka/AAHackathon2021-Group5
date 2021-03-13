@@ -1,7 +1,6 @@
 package com.example.thingder.fragments.createItem
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -24,13 +23,9 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
             createItemViewModel.createThing(title)
         }
 
-        createItemViewModel.text.observe(requireActivity(), { msg ->
-            Log.d("CREATEITEM_TAG", msg)
-            Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
-        })
-
         createItemViewModel.isCreateSuccess.observe(requireActivity(), { isCreateSuccess ->
             if (isCreateSuccess) {
+                Toast.makeText(requireContext(), "Create Item Success!", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
             }
         })
