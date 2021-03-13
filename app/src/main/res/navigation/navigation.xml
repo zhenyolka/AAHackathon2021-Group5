@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/navigation_mine_liked_things"
-        android:name="com.example.thingder.fragments.mineLikedThings.MineLikedThingsFragment"
+        android:name="com.example.thingder.fragments.myThingsLikedByOthers.MyThingsLikedByOthersFragment"
         android:label="@string/nav_mine_liked_things_title"
         tools:layout="@layout/fragment_mine_liked_things">
     </fragment>
