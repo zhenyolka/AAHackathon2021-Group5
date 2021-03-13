@@ -6,19 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.likedThings.LikedThingsFragment">
 
-    <TextView
-        android:id="@+id/liked_things_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Things I liked" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/liked_things_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/liked_things_header"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
