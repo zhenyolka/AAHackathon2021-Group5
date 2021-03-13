@@ -29,4 +29,10 @@
     <string name="register_failed">Register Failed</string>
     <string name="register_button">Register</string>
     <string name="sign_in_button">Sign In</string>
+    <string name="logout">Logout</string>
+    <string name="logout_alert_dialog_title">Logout?</string>
+    <string name="logout_alert_dialog_message">Are you sure you want to logout?</string>
+    <string name="logout_alert_dialog_pos_btn_text">Yes</string>
+    <string name="logout_alert_dialog_neg_btn_text">No</string>
+    <string name="logout_success_toast_text">Logout Success</string>
 </resources>
