@@ -10,13 +10,13 @@ import kotlinx.coroutines.flow.*
 class FetchMyThingsUseCase(
     private val db: FirebaseFirestore,
     private val auth: FirebaseAuth
-): IFetchMyThingsUseCase {
+) : IFetchMyThingsUseCase {
 
     private val stateSharedFlow = MutableStateFlow<List<Thing>>(emptyList())
 
     private val document = db
         .collection(FireConstants.COLLECTION_THINGS)
-        .whereEqualTo(FireConstants.KEY_USER_ID, auth.currentUser.uid)
+        .whereEqualTo(FireConstants.KEY_THING_USER_ID, auth.currentUser.uid)
 
     override fun fetch(): Flow<List<Thing>> {
         document.addSnapshotListener { value, error ->
@@ -29,7 +29,8 @@ class FetchMyThingsUseCase(
     private fun QueryDocumentSnapshot.toDomain(): Thing {
         val id = this[FireConstants.KEY_THING_ID].toString()
         val title = this[FireConstants.KEY_THING_TITLE].toString()
-        return Thing(id, title)
+        val imageUrl = this[FireConstants.KEY_THING_IMAGE_ID].toString()
+        return Thing(id, title, imageUrl)
     }
 
 }

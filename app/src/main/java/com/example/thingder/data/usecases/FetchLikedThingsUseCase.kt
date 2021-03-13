@@ -18,7 +18,7 @@ class FetchLikedThingsUseCase(
 
     private val document = db
         .collection(FireConstants.COLLECTION_LIKES)
-        .whereEqualTo(FireConstants.KEY_USER_ID, auth.currentUser.uid)
+        .whereEqualTo(FireConstants.KEY_THING_USER_ID, auth.currentUser.uid)
 
     override fun fetch(): Flow<List<Thing>> {
         document.addSnapshotListener { value, error ->

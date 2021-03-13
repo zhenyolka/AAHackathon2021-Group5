@@ -16,7 +16,7 @@ class LikeThingUseCase(
             .document(auth.currentUser.uid + thing.id)
             .set(
                 hashMapOf(
-                    FireConstants.KEY_USER_ID to auth.currentUser.uid,
+                    FireConstants.KEY_THING_USER_ID to auth.currentUser.uid,
                     FireConstants.KEY_THING_ID to thing.id
                 )
             )

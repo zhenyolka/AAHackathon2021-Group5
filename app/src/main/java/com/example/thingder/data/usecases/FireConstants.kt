@@ -7,6 +7,7 @@ object FireConstants {
 
     const val KEY_THING_ID = "thingId"
     const val KEY_THING_TITLE = "title"
+    const val KEY_THING_USER_ID = "id"
+    const val KEY_THING_IMAGE_ID = "imageUrl"
 
-    const val KEY_USER_ID = "id"
 }

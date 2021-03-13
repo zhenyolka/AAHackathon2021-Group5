@@ -24,8 +24,9 @@ class CreateItemUseCase(
             .document(auth.currentUser.uid + title)
             .set(
                 hashMapOf(
-                    FireConstants.KEY_USER_ID to auth.currentUser.uid,
-                    FireConstants.KEY_THING_TITLE to title
+                    FireConstants.KEY_THING_USER_ID to auth.currentUser.uid,
+                    FireConstants.KEY_THING_TITLE to title,
+                    FireConstants.KEY_THING_IMAGE_ID to downloadUri
                 )
             )
         return true
