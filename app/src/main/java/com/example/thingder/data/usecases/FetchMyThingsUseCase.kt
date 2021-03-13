@@ -13,9 +13,9 @@ class FetchMyThingsUseCase(
 ): IFetchMyThingsUseCase {
 
     private val document = db
-        .collection("users")
+        .collection(FireConstants.COLLECTION_USERS)
         .document(auth.currentUser.uid)
-        .collection("things")
+        .collection(FireConstants.COLLECTION_THINGS)
 
     private val stateSharedFlow = MutableStateFlow<List<Thing>>(emptyList())
 
@@ -30,7 +30,7 @@ class FetchMyThingsUseCase(
     private fun QueryDocumentSnapshot.toDomain(): Thing {
         //TODO: return id
         //val id = this["id"] as Int
-        val title = this["title"].toString()
+        val title = this[FireConstants.KEY_THING_TITLE].toString()
         return Thing(3, title)
     }
 
