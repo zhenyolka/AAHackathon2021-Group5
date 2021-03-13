@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.thingder.MainActivity
+import com.example.thingder.R
 import com.example.thingder.databinding.ActivityLoginBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -22,12 +23,8 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.buttonFakeLogin.setOnClickListener {
-            navigateToMainActivity()
-        }
-
         loginViewModel.showToast.observe(this, { msg ->
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(msg), Toast.LENGTH_SHORT).show()
         })
 
         loginViewModel.isProgressVisible.observe(this, { showProgress ->
@@ -40,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
                 binding.tvUser.text = Firebase.auth.currentUser?.email.toString()
                 navigateToMainActivity()
             } else {
-                binding.tvUser.text = "You are not authorised"
+                binding.tvUser.text = getString(R.string.you_are_not_authorised)
             }
         })
 
@@ -50,9 +47,6 @@ class LoginActivity : AppCompatActivity() {
             }
             buttonRegister.setOnClickListener {
                 register()
-            }
-            buttonLogOut.setOnClickListener {
-                loginViewModel.logout()
             }
         }
     }
@@ -79,20 +73,22 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun navigateToMainActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
+        val mainActivityIntent = Intent(this, MainActivity::class.java)
+        mainActivityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(mainActivityIntent)
     }
 
     private fun validateForm(): Boolean {
         var result = true
         if (TextUtils.isEmpty(binding.fieldEmail.text.toString())) {
-            binding.fieldEmail.error = "Required"
+            binding.fieldEmail.error = getString(R.string.required)
             result = false
         } else {
             binding.fieldEmail.error = null
         }
 
         if (TextUtils.isEmpty(binding.fieldPassword.text.toString())) {
-            binding.fieldPassword.error = "Required"
+            binding.fieldPassword.error = getString(R.string.required)
             result = false
         } else {
             binding.fieldPassword.error = null
