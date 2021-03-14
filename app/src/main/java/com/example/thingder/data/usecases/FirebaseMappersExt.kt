@@ -6,8 +6,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot
 
 fun QueryDocumentSnapshot.toDomain(): Thing {
     val id = this.id
-    val title = this[FireConstants.KEY_THING_TITLE].toString()
-    val description = this[FireConstants.KEY_THING_DESCRIPTION].toString()
+    val title = this[FireConstants.KEY_THING_TITLE].toString().capitalize()
+    val description = this[FireConstants.KEY_THING_DESCRIPTION].toString().capitalize()
     val imageUrl = this[FireConstants.KEY_THING_IMAGE_ID].toString()
     return Thing(
         id =id,
