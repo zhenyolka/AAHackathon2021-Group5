@@ -28,7 +28,24 @@ class FetchMyThingsLikedByOthersUseCase(
 
             db.collection(FireConstants.COLLECTION_THINGS)
                 .addSnapshotListener { newValue, _ ->
-                    stateSharedFlow.value = newValue.getListOfThings(thingIds)
+                    val thingsList = newValue.getListOfThings(thingIds)
+
+                    db.collection(FireConstants.COLLECTION_USERS)
+                        .addSnapshotListener { userValue, _ ->
+                            val mutList = mutableListOf<Pair<User, Thing>>()
+                            userValue?.forEach {
+                                val userId = it[FireConstants.KEY_USER_ID].toString()
+                                val userEmail = it[FireConstants.KEY_USER_EMAIL].toString()
+
+                                val pair = thingsList.find { it.first.email == userId }
+
+                                if (pair != null) {
+                                    mutList.add(User(userEmail) to pair.second)
+                                }
+                            }
+                            stateSharedFlow.value = mutList
+
+                        }
                 }
 
         }
@@ -47,7 +64,7 @@ class FetchMyThingsLikedByOthersUseCase(
         this?.forEach { snapshot ->
 
             if (thingIds.contains(snapshot.id)) {
-                list.add(User(23, "Kek") to snapshot.toDomain())
+                list.add(User(snapshot[FireConstants.KEY_THING_USER_ID].toString()) to snapshot.toDomain())
             }
         }
 

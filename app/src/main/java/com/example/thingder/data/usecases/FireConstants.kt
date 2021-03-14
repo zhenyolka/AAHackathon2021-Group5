@@ -13,4 +13,9 @@ object FireConstants {
     const val KEY_THING_DESCRIPTION = "description"
     const val KEY_THING_IMAGE_ID = "imageUrl"
 
+
+    const val KEY_USER_ID = "user_item_id"
+    const val KEY_USER_EMAIL = "user_email_id"
+
+
 }

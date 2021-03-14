@@ -7,8 +7,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.thingder.R
+import com.example.thingder.data.usecases.FireConstants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class LoginViewModel : ViewModel() {
@@ -21,12 +23,16 @@ class LoginViewModel : ViewModel() {
     private var auth: FirebaseAuth = Firebase.auth
 
     private var isAuth = MutableLiveData(false)
+
     init {
         isAuth.value = Firebase.auth.currentUser != null
     }
+
     val isAuthorised: LiveData<Boolean> get() = isAuth
 
-    private fun refreshAuthStatus(){isAuth.value = Firebase.auth.currentUser != null}
+    private fun refreshAuthStatus() {
+        isAuth.value = Firebase.auth.currentUser != null
+    }
 
 
     fun signIn(email: String, password: String, activity: Activity) {
@@ -57,9 +63,21 @@ class LoginViewModel : ViewModel() {
                 if (task.isSuccessful) {
                     _showToast.value = R.string.register_success
                     refreshAuthStatus()
+                    createUserToFirebase()
                 } else {
                     _showToast.value = R.string.register_failed
                 }
             }
+    }
+
+    private fun createUserToFirebase() {
+        FirebaseFirestore.getInstance().collection(FireConstants.COLLECTION_USERS)
+            .document(auth.currentUser.uid)
+            .set(
+                hashMapOf(
+                    FireConstants.KEY_USER_ID to auth.currentUser.uid,
+                    FireConstants.KEY_USER_EMAIL to auth.currentUser.email,
+                )
+            )
     }
 }
