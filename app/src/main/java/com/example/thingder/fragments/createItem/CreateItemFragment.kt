@@ -47,7 +47,6 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
                 findNavController().popBackStack()
             } else {
                 Toast.makeText(requireContext(), getString(R.string.create_item_failure), Toast.LENGTH_SHORT).show()
-
             }
         })
 
