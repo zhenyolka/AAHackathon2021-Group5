@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.thingder.R
 import com.example.thingder.domain.entities.Thing
 import com.example.thingder.domain.entities.User
+import com.squareup.picasso.Picasso
 
 class MineLikedThingsAdapter(private val items: List<Pair<User, Thing>>): RecyclerView.Adapter<DataViewHolder>() {
 
@@ -34,5 +35,6 @@ class DataViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     fun onBind(item: Pair<User, Thing>) {
         userName.text = item.first.email
         thingName.text = item.second.title
+        Picasso.get().load(item.second.imageUrl).into(thingPhoto)
     }
 }

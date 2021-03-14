@@ -5,9 +5,11 @@ object FireConstants {
     const val COLLECTION_THINGS = "things"
     const val COLLECTION_LIKES: String = "likedByUsers"
 
+    const val KEY_THING_USER_ID = "user_id"
+
     const val KEY_THING_ID = "thingId"
+
     const val KEY_THING_TITLE = "title"
-    const val KEY_THING_USER_ID = "id"
     const val KEY_THING_IMAGE_ID = "imageUrl"
 
 }

@@ -26,11 +26,4 @@ class FetchMyThingsUseCase(
         return stateSharedFlow
     }
 
-    private fun QueryDocumentSnapshot.toDomain(): Thing {
-        val id = this[FireConstants.KEY_THING_ID].toString()
-        val title = this[FireConstants.KEY_THING_TITLE].toString()
-        val imageUrl = this[FireConstants.KEY_THING_IMAGE_ID].toString()
-        return Thing(id, title, imageUrl)
-    }
-
 }

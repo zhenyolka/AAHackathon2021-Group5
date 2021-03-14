@@ -4,7 +4,6 @@ import com.example.thingder.domain.entities.Thing
 import com.example.thingder.domain.usecases.IFetchLikedThingsUseCase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -49,12 +48,6 @@ class FetchLikedThingsUseCase(
         }
 
         return list
-    }
-
-    private fun QueryDocumentSnapshot.toDomain(): Thing {
-        val id = this[FireConstants.KEY_THING_ID].toString()
-        val title = this[FireConstants.KEY_THING_TITLE].toString()
-        return Thing(id, title)
     }
 
 }
