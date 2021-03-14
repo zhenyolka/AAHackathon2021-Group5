@@ -52,19 +52,21 @@ class FetchMyThingsLikedByOthersUseCase(
         return stateSharedFlow
     }
 
-    private fun QuerySnapshot.getListOfThingIds(): List<String> {
+    private fun QuerySnapshot.getListOfThingIds(): List<Pair<String, String>> {
         return map {
-            it[FireConstants.KEY_THING_ID].toString()
+            it[FireConstants.KEY_THING_ID].toString() to
+                    it[FireConstants.KEY_THING_USER_ID].toString()
         }
     }
 
 
-    private fun QuerySnapshot?.getListOfThings(thingIds: List<String>): List<Pair<User, Thing>> {
+    private fun QuerySnapshot?.getListOfThings(thingIds: List<Pair<String, String>>): List<Pair<User, Thing>> {
         val list = mutableListOf<Pair<User, Thing>>()
         this?.forEach { snapshot ->
 
-            if (thingIds.contains(snapshot.id)) {
-                list.add(User(snapshot[FireConstants.KEY_THING_USER_ID].toString()) to snapshot.toDomain())
+            val pair = thingIds.find { it.first == snapshot.id }
+            if (pair != null) {
+                list.add(User(pair.second) to snapshot.toDomain())
             }
         }
 
