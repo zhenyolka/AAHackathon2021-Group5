@@ -34,11 +34,13 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
         binding = FragmentCreateItemBinding.bind(view)
 
         binding.fabSubmitPost.setOnClickListener {
+            it.isEnabled = false
             val title = binding.tvTitle.text.toString()
             createItemViewModel.createThing(title)
         }
 
         createItemViewModel.isCreateSuccess.observe(requireActivity(), { isCreateSuccess ->
+            binding.fabSubmitPost.isEnabled = true
             if (isCreateSuccess) {
                 Toast.makeText(requireContext(), getString(R.string.create_item_success), Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
