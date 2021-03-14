@@ -24,16 +24,6 @@ class MineLikedThingsAdapter(private val items: List<Pair<User, Thing>>): Recycl
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.onBind(items[position])
-        holder.itemView.setOnClickListener {
-            val selectorIntent = Intent(Intent.ACTION_SENDTO)
-            selectorIntent.data = Uri.parse("mailto:")
-
-            val emailIntent = Intent(Intent.ACTION_SEND)
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(items[position].first.email))
-            emailIntent.selector = selectorIntent
-
-            it.context.startActivity(Intent.createChooser(emailIntent, it.context.getString(R.string.send_email)))
-        }
     }
 
     override fun getItemCount(): Int = items.size
@@ -47,6 +37,17 @@ class DataViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     private val thingName: TextView = itemView.findViewById(R.id.view_holder_mine_liked_things_thing_name)
 
     fun onBind(item: Pair<User, Thing>) {
+        itemView.setOnClickListener {
+            val selectorIntent = Intent(Intent.ACTION_SENDTO)
+            selectorIntent.data = Uri.parse("mailto:")
+
+            val emailIntent = Intent(Intent.ACTION_SEND)
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(item.first.email))
+            emailIntent.selector = selectorIntent
+
+            it.context.startActivity(Intent.createChooser(emailIntent, it.context.getString(R.string.send_email)))
+        }
+        
         userName.text = item.first.email
         thingName.text = item.second.title
         Picasso.get().load(item.second.imageUrl).into(thingPhoto)
