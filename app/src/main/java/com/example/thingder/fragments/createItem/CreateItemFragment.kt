@@ -35,7 +35,8 @@ class CreateItemFragment : Fragment(R.layout.fragment_create_item) {
 
         binding.fabSubmitPost.setOnClickListener {
             val title = binding.tvTitle.text.toString()
-            createItemViewModel.createThing(title)
+            val description = binding.tvDescription.text.toString()
+            createItemViewModel.createThing(title, description)
         }
 
         createItemViewModel.isCreateSuccess.observe(requireActivity(), { isCreateSuccess ->
