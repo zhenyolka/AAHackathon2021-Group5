@@ -37,5 +37,6 @@
     <string name="logout_success_toast_text">Logout Success</string>
     <string name="create_item_success">Create Item Success!</string>
     <string name="create_item_failure">Create Item Falilure!</string>
+    <string name="description">This is item description</string>
 
 </resources>

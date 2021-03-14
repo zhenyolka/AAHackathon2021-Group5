@@ -30,9 +30,11 @@ class MyThingsAdapter(private val things: List<Thing>) : RecyclerView.Adapter<Th
 class ThingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val photo: ImageView = itemView.findViewById(R.id.view_holder_my_things_photo)
     private val name: TextView = itemView.findViewById(R.id.view_holder_my_things_name)
+    private val description: TextView = itemView.findViewById(R.id.view_holder_my_things_description)
 
     fun onBind(thing: Thing) {
         name.text = thing.title
+        description.text = thing.description
         Picasso.get().load(thing.imageUrl).into(photo)
     }
 }

@@ -10,6 +10,7 @@ object FireConstants {
     const val KEY_THING_ID = "thingId"
 
     const val KEY_THING_TITLE = "title"
+    const val KEY_THING_DESCRIPTION = "description"
     const val KEY_THING_IMAGE_ID = "imageUrl"
 
 }

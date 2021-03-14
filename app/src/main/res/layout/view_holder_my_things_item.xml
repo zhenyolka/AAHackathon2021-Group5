@@ -27,13 +27,24 @@
         <TextView
             android:id="@+id/view_holder_my_things_name"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view_holder_my_things_photo"
+            app:layout_constraintTop_toTopOf="@id/view_holder_my_things_photo"
+            tools:text="Thing name" />
+
+        <TextView
+            android:id="@+id/view_holder_my_things_description"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:padding="8dp"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/view_holder_my_things_photo"
-            app:layout_constraintTop_toTopOf="@id/view_holder_my_things_photo"
+            app:layout_constraintTop_toBottomOf="@id/view_holder_my_things_name"
             tools:text="Thing name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

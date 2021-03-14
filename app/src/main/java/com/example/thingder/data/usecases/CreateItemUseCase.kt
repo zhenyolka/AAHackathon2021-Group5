@@ -16,7 +16,7 @@ class CreateItemUseCase(
     private val storage: FirebaseStorage
 ) : ICreateItemUseCase {
 
-    override suspend fun createThing(title: String, uri: Uri): Boolean {
+    override suspend fun createThing(title: String, description: String, uri: Uri): Boolean {
         val downloadUri = uploadImage(uri, title)
         Log.d("LOAD_TAG", "downloadUri: $downloadUri")
 
@@ -26,7 +26,8 @@ class CreateItemUseCase(
                 hashMapOf(
                     FireConstants.KEY_THING_USER_ID to auth.currentUser.uid,
                     FireConstants.KEY_THING_TITLE to title,
-                    FireConstants.KEY_THING_IMAGE_ID to downloadUri
+                    FireConstants.KEY_THING_IMAGE_ID to downloadUri,
+                    FireConstants.KEY_THING_DESCRIPTION to description
                 )
             )
         return true
