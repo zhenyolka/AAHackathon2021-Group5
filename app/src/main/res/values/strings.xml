@@ -13,7 +13,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nav_main_title">Explore</string>
     <string name="nav_mine_liked_things_title">Matches</string>
-    <string name="nav_my_things_title">Profile</string>
+    <string name="nav_my_things_title">My things</string>
     <string name="nav_create_item">Create thing</string>
     <string name="nav_liked_things_title">Favorites</string>
     <string name="welcome_to_thingder">Welcome to Thingster</string>
